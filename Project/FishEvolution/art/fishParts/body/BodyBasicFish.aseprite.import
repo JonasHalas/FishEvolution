@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://dyju3bk1bluf8"
+path="res://.godot/imported/BodyBasicFish.aseprite-345c15becd7854919f13f38a76eba960.res"
+
+[deps]
+
+source_file="res://art/fishParts/body/BodyBasicFish.aseprite"
+dest_files=["res://.godot/imported/BodyBasicFish.aseprite-345c15becd7854919f13f38a76eba960.res"]
+
+[params]
+
