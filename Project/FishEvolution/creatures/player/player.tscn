@@ -9,9 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://dbqr7ttwb4krx" path="res://art/fishParts/eye/eye1.png" id="7_hexdt"]
 [ext_resource type="Texture2D" uid="uid://cuxagi3oleqja" path="res://art/fishParts/finFront/finFront1.png" id="8_icfoe"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5id7p"]
-radius = 12.81
-height = 64.02
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6hvnr"]
+radius = 16.0
+height = 60.0
 
 [node name="player" type="CharacterBody2D"]
 motion_mode = 1
@@ -19,33 +19,34 @@ script = ExtResource("1_dhu3l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 top_level = true
-position = Vector2(-5, 0)
+position = Vector2(-5, -2)
 rotation = 1.5708
-shape = SubResource("CapsuleShape2D_5id7p")
+shape = SubResource("CapsuleShape2D_6hvnr")
 
-[node name="entireFish" type="Node2D" parent="CollisionShape2D"]
-position = Vector2(-2.18557e-07, -5)
-rotation = -1.5708
+[node name="entireFish" type="Node2D" parent="."]
+position = Vector2(0, 1.78814e-05)
 scale = Vector2(0.1, 0.1)
 
-[node name="tail" parent="CollisionShape2D/entireFish" instance=ExtResource("2_ph1bu")]
+[node name="tail" parent="entireFish" instance=ExtResource("2_ph1bu")]
 texture = ExtResource("4_ej55c")
 
-[node name="finTop" parent="CollisionShape2D/entireFish" instance=ExtResource("2_ph1bu")]
+[node name="finTop" parent="entireFish" instance=ExtResource("2_ph1bu")]
 texture = ExtResource("4_o0xlb")
 
-[node name="finBot" parent="CollisionShape2D/entireFish" instance=ExtResource("2_ph1bu")]
+[node name="finBot" parent="entireFish" instance=ExtResource("2_ph1bu")]
 texture = ExtResource("5_ct3a5")
 
-[node name="body" parent="CollisionShape2D/entireFish" instance=ExtResource("2_ph1bu")]
+[node name="body" parent="entireFish" instance=ExtResource("2_ph1bu")]
 texture = ExtResource("3_jaocj")
 
-[node name="head" parent="CollisionShape2D/entireFish" instance=ExtResource("2_ph1bu")]
+[node name="head" parent="entireFish" instance=ExtResource("2_ph1bu")]
 
-[node name="eye" parent="CollisionShape2D/entireFish" instance=ExtResource("2_ph1bu")]
+[node name="eye" parent="entireFish" instance=ExtResource("2_ph1bu")]
 texture = ExtResource("7_hexdt")
 
-[node name="finFront" parent="CollisionShape2D/entireFish" instance=ExtResource("2_ph1bu")]
+[node name="finFront" parent="entireFish" instance=ExtResource("2_ph1bu")]
 texture = ExtResource("8_icfoe")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+limit_top = 0
+position_smoothing_enabled = true

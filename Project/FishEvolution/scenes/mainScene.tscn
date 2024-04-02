@@ -1,12 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://ccgn4vj4xusm1"]
 
-[ext_resource type="Texture2D" uid="uid://dlp652yxoxtyc" path="res://art/backgrounds/TemporaryIstockPhoto-1306441450-1024x1024.jpg" id="1_6e77q"]
+[ext_resource type="PackedScene" uid="uid://dm0m876wo2s6" path="res://scenes/background.tscn" id="1_iimlb"]
 [ext_resource type="PackedScene" uid="uid://cjpd10tceke01" path="res://creatures/player/player.tscn" id="2_jrrna"]
 
 [node name="MainScene" type="Node2D"]
 
-[node name="TemporaryIstockPhoto-1306441450-1024x1024" type="Sprite2D" parent="."]
-texture = ExtResource("1_6e77q")
+[node name="Background" parent="." instance=ExtResource("1_iimlb")]
+position = Vector2(-12, -3)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_jrrna")]
-position = Vector2(1, 0)
+position = Vector2(960, 540)
