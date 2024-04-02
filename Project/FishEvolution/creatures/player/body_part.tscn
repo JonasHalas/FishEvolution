@@ -1,0 +1,65 @@
+[gd_scene load_steps=6 format=3 uid="uid://uwjyy24f4in6"]
+
+[ext_resource type="Texture2D" uid="uid://dytgmwgkomifu" path="res://art/fishParts/head/head1.png" id="1_rnjit"]
+[ext_resource type="Script" path="res://creatures/player/body_part.gd" id="2_acu6a"]
+
+[sub_resource type="Animation" id="Animation_r5i35"]
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_idufu"]
+resource_name = "base"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6o7uv"]
+_data = {
+"RESET": SubResource("Animation_r5i35"),
+"base": SubResource("Animation_idufu")
+}
+
+[node name="bodyPart" type="Sprite2D"]
+texture = ExtResource("1_rnjit")
+offset = Vector2(-100, 116)
+hframes = 2
+script = ExtResource("2_acu6a")
+metadata/_aseprite_wizard_config_ = {
+"i_mode": -1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "entireFish/mouth/AnimationPlayer",
+"slice": "",
+"source": ""
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6o7uv")
+}

@@ -1,0 +1,51 @@
+[gd_scene load_steps=10 format=3 uid="uid://cjpd10tceke01"]
+
+[ext_resource type="Script" path="res://creatures/player/player.gd" id="1_dhu3l"]
+[ext_resource type="PackedScene" uid="uid://uwjyy24f4in6" path="res://creatures/player/body_part.tscn" id="2_ph1bu"]
+[ext_resource type="Texture2D" uid="uid://c477pbhjywe4u" path="res://art/fishParts/body/body1.png" id="3_jaocj"]
+[ext_resource type="Texture2D" uid="uid://pbkqp4q2p1e4" path="res://art/fishParts/tail1.png" id="4_ej55c"]
+[ext_resource type="Texture2D" uid="uid://btva5metek2g6" path="res://art/fishParts/finTop/finTop1.png" id="4_o0xlb"]
+[ext_resource type="Texture2D" uid="uid://hsxunjrxbwbm" path="res://art/fishParts/finBot/finBot1.png" id="5_ct3a5"]
+[ext_resource type="Texture2D" uid="uid://dbqr7ttwb4krx" path="res://art/fishParts/eye/eye1.png" id="7_hexdt"]
+[ext_resource type="Texture2D" uid="uid://cuxagi3oleqja" path="res://art/fishParts/finFront/finFront1.png" id="8_icfoe"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5id7p"]
+radius = 12.81
+height = 64.02
+
+[node name="player" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_dhu3l")
+size = null
+movementSpeed = null
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+top_level = true
+position = Vector2(-5, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_5id7p")
+
+[node name="entireFish" type="Node2D" parent="."]
+scale = Vector2(0.1, 0.1)
+
+[node name="tail" parent="entireFish" instance=ExtResource("2_ph1bu")]
+texture = ExtResource("4_ej55c")
+
+[node name="finTop" parent="entireFish" instance=ExtResource("2_ph1bu")]
+texture = ExtResource("4_o0xlb")
+
+[node name="finBot" parent="entireFish" instance=ExtResource("2_ph1bu")]
+texture = ExtResource("5_ct3a5")
+
+[node name="body" parent="entireFish" instance=ExtResource("2_ph1bu")]
+texture = ExtResource("3_jaocj")
+
+[node name="head" parent="entireFish" instance=ExtResource("2_ph1bu")]
+
+[node name="eye" parent="entireFish" instance=ExtResource("2_ph1bu")]
+texture = ExtResource("7_hexdt")
+
+[node name="finFront" parent="entireFish" instance=ExtResource("2_ph1bu")]
+texture = ExtResource("8_icfoe")
+
+[node name="Camera2D" type="Camera2D" parent="."]
