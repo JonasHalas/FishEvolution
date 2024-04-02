@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4fwgiw7mix5d"
-path="res://.godot/imported/basicMouthmouth.png-d2535ddf4b5f846d45cf0dac588ab80c.ctex"
+uid="uid://dytgmwgkomifu"
+path="res://.godot/imported/head1.png-a0f36a9325a33edf07e49b59aeef7c7f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/fishParts/head/basicMouthmouth.png"
-dest_files=["res://.godot/imported/basicMouthmouth.png-d2535ddf4b5f846d45cf0dac588ab80c.ctex"]
+source_file="res://art/fishParts/head/head1.png"
+dest_files=["res://.godot/imported/head1.png-a0f36a9325a33edf07e49b59aeef7c7f.ctex"]
 
 [params]
 

@@ -5,6 +5,13 @@ extends CharacterBody2D
 #just to keep track of what direction the sprite should be when moving straight up or down
 var lastDirectionRight: bool = true
 
+@onready var camera_2d = $Camera2D
+# Get a reference to the body parts
+@onready var head = get_node("entireFish/head")
+@onready var body = get_node("entireFish/body")
+@onready var tail = get_node("entireFish/tail")
+
+
 var inputDirection: Vector2 = Vector2(0,0)
 
 func _ready():
@@ -21,4 +28,20 @@ func _physics_process(_delta):
 	velocity = inputDirection.normalized() * movementSpeed
 	#allows us to move
 	move_and_slide()
+	
+
+func _unhandled_input(event: InputEvent) -> void:
+	
+	if Input.is_action_just_pressed("Test Button"):
+		camera_2d.zoom = camera_2d.zoom + Vector2(0.1,0.1)
+		
+	if Input.is_action_just_pressed("Zoom In"):
+		zoom_player_camera()
+	if Input.is_action_just_pressed("Zoom Out"):
+		zoom_player_camera_out()
+
+func zoom_player_camera() -> void:
+	camera_2d.zoom = camera_2d.zoom + Vector2(0.1,0.1)
+func zoom_player_camera_out() -> void:
+	camera_2d.zoom = camera_2d.zoom - Vector2(0.1,0.1)
 

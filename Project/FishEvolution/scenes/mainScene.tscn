@@ -10,5 +10,3 @@ texture = ExtResource("1_6e77q")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_jrrna")]
 position = Vector2(-18, 68)
-
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
