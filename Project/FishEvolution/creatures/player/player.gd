@@ -10,6 +10,10 @@ var lastDirectionRight: bool = true
 @onready var head = get_node("entireFish/head")
 @onready var body = get_node("entireFish/body")
 @onready var tail = get_node("entireFish/tail")
+@onready var eye = get_node("entireFish/eye")
+@onready var finFront = get_node("entireFish/finFront")
+@onready var finBot = get_node("entireFish/finBot")
+@onready var finTop = get_node("entireFish/finTop")
 
 
 var inputDirection: Vector2 = Vector2(0,0)
@@ -33,7 +37,13 @@ func _physics_process(_delta):
 func _unhandled_input(event: InputEvent) -> void:
 	
 	if Input.is_action_just_pressed("Test Button"):
-		camera_2d.zoom = camera_2d.zoom + Vector2(0.1,0.1)
+		finFront.change_texture("res://art/fishParts/finFront/claw1.png")
+		
+	if Input.is_action_just_pressed("Test Button 2"):
+		finTop.change_texture("res://art/fishParts/finTop/lightAntenna1.png")
+		
+	if Input.is_action_just_pressed("Test Button 3"):
+		finBot.change_texture("res://art/fishParts/finBot/legs1.png")
 		
 	if Input.is_action_just_pressed("Zoom In"):
 		zoom_player_camera()
