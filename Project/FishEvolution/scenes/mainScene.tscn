@@ -10,7 +10,7 @@
 position = Vector2(-12, -3)
 
 [node name="Player" parent="." instance=ExtResource("2_jrrna")]
-position = Vector2(300, 211)
+position = Vector2(374, 264)
 motion_mode = 0
 
 [node name="testEnemy" parent="." instance=ExtResource("3_kq7m7")]

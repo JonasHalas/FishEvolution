@@ -8,13 +8,13 @@ extends CharacterBody2D
 @onready var camera_2d = $Camera2D
 
 # Get a reference to the body parts
-@onready var head = get_node("CollisionShape2D/entireFish/head")
-@onready var body = get_node("CollisionShape2D/entireFish/body")
-@onready var tail = get_node("CollisionShape2D/entireFish/tail")
-@onready var eye = get_node("CollisionShape2D/entireFish/eye")
-@onready var finFront = get_node("CollisionShape2D/entireFish/finFront")
-@onready var finBot = get_node("CollisionShape2D/entireFish/finBot")
-@onready var finTop = get_node("CollisionShape2D/entireFish/finTop")
+@onready var head = get_node("entireFish/head")
+@onready var body = get_node("entireFish/body")
+@onready var tail = get_node("entireFish/tail")
+@onready var eye = get_node("entireFish/eye")
+@onready var finFront = get_node("entireFish/finFront")
+@onready var finBot = get_node("entireFish/finBot")
+@onready var finTop = get_node("entireFish/finTop")
 @onready var collision_shape_2d = $CollisionShape2D
 
 var lastDirectionRight: bool = true
