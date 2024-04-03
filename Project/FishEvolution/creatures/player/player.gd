@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var size: float = 100
 @export var movementSpeed: float = 100
 
+
 #just to keep track of what direction the sprite should be when moving straight up or down
 @onready var camera_2d = $Camera2D
 
@@ -33,11 +34,9 @@ func _physics_process(_delta):
 	#updates velocity
 	velocity = inputDirection.normalized() * movementSpeed
 	
-	#for some reason, the collision shape wont follow on its own. this makes it follow manually...
-	collision_shape_2d.position = position
-	
 	#allows us to move
 	move_and_slide()
+	
 	updateAnimationDirection()
 
 
