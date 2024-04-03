@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var size: float = 100
 @export var movementSpeed: float = 100
 
+
 #just to keep track of what direction the sprite should be when moving straight up or down
 @onready var camera_2d = $Camera2D
 
@@ -33,12 +34,10 @@ func _physics_process(_delta):
 	#updates velocity
 	velocity = inputDirection.normalized() * movementSpeed
 	
-	#for some reason, the collision shape wont follow on its own. this makes it follow manually...
-	collision_shape_2d.position = position
-	
 	#allows us to move
 	move_and_slide()
-	updateAnimationDirection()
+	
+	rotate_character_body(inputDirection)
 
 
 func _unhandled_input(_event: InputEvent) -> void:
@@ -57,29 +56,24 @@ func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Test Button 3"):
 		finBot.change_texture("res://art/fishParts/finBot/legs1.png")
 
-
-func updateAnimationDirection() -> void:
-	# Rotating and flipping sprites so that if you go directly up or down, fish is still flipped towards your last direction. Had to brute force this math ;(
+			
+# Rotate a CharacterBody2D node based on its velocity vector
+func rotate_character_body(velocity: Vector2) -> void:
+	#if fish is moving right and is not flipped, flip it
+	if velocity.x < 0 && scale.y > 0:
+		scale.y = -scale.y
+	#if fish is moving right and is flipped, flip it back
+	elif velocity.x > 0 && scale.y < 0:
+		scale.y = -scale.y
 	
-	if inputDirection.x == 1: #Right
-		collision_shape_2d.scale = Vector2(1, 1)
-		collision_shape_2d.rotation = 3.6 - rad_to_deg(atan2(inputDirection.x,inputDirection.y))
-	
-	if inputDirection.x == -1: #Left
-		collision_shape_2d.scale = Vector2(1, -1)
-		collision_shape_2d.rotation = -(.4 + rad_to_deg(atan2(inputDirection.x,inputDirection.y)))
-		
-	if inputDirection == Vector2(0, 1): #Straight Down
-		if collision_shape_2d.scale == Vector2(1, 1):# and is allready Right
-			collision_shape_2d.set_rotation(3.2)
-		if collision_shape_2d.scale == Vector2(1, -1):# and is allready Left
-			collision_shape_2d.set_rotation(0)
-		
-	if inputDirection == Vector2(0, -1): #Straigth Up
-		if collision_shape_2d.scale == Vector2(1, 1):# and is allready Right
-			collision_shape_2d.set_rotation(0)
-		if collision_shape_2d.scale == Vector2(1, -1):# and is allready Left
-			collision_shape_2d.set_rotation(3.2)
+		# rotates character according to direction. This can be simplified without degreeconversion, but in case i need the degrees in the future, im leavin as is
+	if velocity != Vector2.ZERO:  # Ensure velocity is non-zero to avoid division by zero
+		#calculates the radan
+		var angle = atan2(velocity.y, velocity.x)
+		# converts radan to degrees because radans are hard :(
+		var degrees = rad_to_deg(angle)
+		# Apply the rotation to the character body
+		rotation_degrees = degrees
 
 
 func zoom_player_camera() -> void:
