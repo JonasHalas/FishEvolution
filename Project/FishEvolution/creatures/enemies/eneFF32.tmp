@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://creatures/enemies/enemyTemplate.gd" id="1_2m5iv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1wbgl"]
-radius = 140.0
+radius = 141.0
 height = 550.0
 
 [sub_resource type="Animation" id="Animation_hwq5s"]
@@ -64,12 +64,3 @@ libraries = {
 }
 
 [node name="Timer" type="Timer" parent="."]
-
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -90.0
-offset_top = -80.0
-offset_right = 120.0
-offset_bottom = 90.0
-color = Color(0.792157, 0.141176, 1, 1)
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

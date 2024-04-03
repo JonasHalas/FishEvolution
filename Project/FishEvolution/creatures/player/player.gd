@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var size: float = 100
+@export var size: float = 0.1
 @export var movementSpeed: float = 100
 
 
@@ -8,14 +8,13 @@ extends CharacterBody2D
 @onready var camera_2d = $Camera2D
 
 # Get a reference to the body parts
-@onready var head = get_node("CollisionShape2D/entireFish/head")
-@onready var body = get_node("CollisionShape2D/entireFish/body")
-@onready var tail = get_node("CollisionShape2D/entireFish/tail")
-@onready var eye = get_node("CollisionShape2D/entireFish/eye")
-@onready var finFront = get_node("CollisionShape2D/entireFish/finFront")
-@onready var finBot = get_node("CollisionShape2D/entireFish/finBot")
-@onready var finTop = get_node("CollisionShape2D/entireFish/finTop")
-@onready var collision_shape_2d = $CollisionShape2D
+@onready var head = get_node("entireFish/head")
+@onready var body = get_node("entireFish/body")
+@onready var tail = get_node("entireFish/tail")
+@onready var eye = get_node("entireFish/eye")
+@onready var finFront = get_node("entireFish/finFront")
+@onready var finBot = get_node("entireFish/finBot")
+@onready var finTop = get_node("entireFish/finTop")
 
 var lastDirectionRight: bool = true
 var inputDirection: Vector2 = Vector2(0,0)
@@ -58,18 +57,18 @@ func _unhandled_input(_event: InputEvent) -> void:
 
 			
 # Rotate a CharacterBody2D node based on its velocity vector
-func rotate_character_body(velocity: Vector2) -> void:
+func rotate_character_body(velocity2: Vector2) -> void:
 	#if fish is moving right and is not flipped, flip it
-	if velocity.x < 0 && scale.y > 0:
+	if velocity2.x < 0 && scale.y > 0:
 		scale.y = -scale.y
 	#if fish is moving right and is flipped, flip it back
-	elif velocity.x > 0 && scale.y < 0:
+	elif velocity2.x > 0 && scale.y < 0:
 		scale.y = -scale.y
 	
 		# rotates character according to direction. This can be simplified without degreeconversion, but in case i need the degrees in the future, im leavin as is
-	if velocity != Vector2.ZERO:  # Ensure velocity is non-zero to avoid division by zero
+	if velocity2 != Vector2.ZERO:  # Ensure velocity is non-zero to avoid division by zero
 		#calculates the radan
-		var angle = atan2(velocity.y, velocity.x)
+		var angle = atan2(velocity2.y, velocity2.x)
 		# converts radan to degrees because radans are hard :(
 		var degrees = rad_to_deg(angle)
 		# Apply the rotation to the character body
