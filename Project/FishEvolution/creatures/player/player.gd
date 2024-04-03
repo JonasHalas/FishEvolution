@@ -58,18 +58,18 @@ func _unhandled_input(_event: InputEvent) -> void:
 
 			
 # Rotate a CharacterBody2D node based on its velocity vector
-func rotate_character_body(velocity: Vector2) -> void:
+func rotate_character_body(velocity2: Vector2) -> void:
 	#if fish is moving right and is not flipped, flip it
-	if velocity.x < 0 && scale.y > 0:
+	if velocity2.x < 0 && scale.y > 0:
 		scale.y = -scale.y
 	#if fish is moving right and is flipped, flip it back
-	elif velocity.x > 0 && scale.y < 0:
+	elif velocity2.x > 0 && scale.y < 0:
 		scale.y = -scale.y
 	
 		# rotates character according to direction. This can be simplified without degreeconversion, but in case i need the degrees in the future, im leavin as is
-	if velocity != Vector2.ZERO:  # Ensure velocity is non-zero to avoid division by zero
+	if velocity2 != Vector2.ZERO:  # Ensure velocity is non-zero to avoid division by zero
 		#calculates the radan
-		var angle = atan2(velocity.y, velocity.x)
+		var angle = atan2(velocity2.y, velocity2.x)
 		# converts radan to degrees because radans are hard :(
 		var degrees = rad_to_deg(angle)
 		# Apply the rotation to the character body
