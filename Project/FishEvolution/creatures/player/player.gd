@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var size: float = 100
+@export var size: float = 0.1
 @export var movementSpeed: float = 100
 
 
@@ -15,7 +15,6 @@ extends CharacterBody2D
 @onready var finFront = get_node("entireFish/finFront")
 @onready var finBot = get_node("entireFish/finBot")
 @onready var finTop = get_node("entireFish/finTop")
-@onready var collision_shape_2d = $CollisionShape2D
 
 var lastDirectionRight: bool = true
 var inputDirection: Vector2 = Vector2(0,0)

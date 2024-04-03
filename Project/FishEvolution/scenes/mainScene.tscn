@@ -11,6 +11,7 @@ position = Vector2(-12, -3)
 
 [node name="Player" parent="." instance=ExtResource("2_jrrna")]
 position = Vector2(374, 264)
+scale = Vector2(0.1, 0.1)
 motion_mode = 0
 
 [node name="testEnemy" parent="." instance=ExtResource("3_kq7m7")]

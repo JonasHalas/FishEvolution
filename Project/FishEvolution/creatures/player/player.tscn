@@ -10,15 +10,14 @@
 [ext_resource type="Texture2D" uid="uid://cuxagi3oleqja" path="res://art/fishParts/finFront/finFront1.png" id="8_icfoe"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4van5"]
-radius = 14.0
-height = 52.0
+radius = 140.0
+height = 550.0
 
 [node name="player" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_dhu3l")
 
 [node name="entireFish" type="Node2D" parent="."]
-scale = Vector2(0.1, 0.1)
 
 [node name="tail" parent="entireFish" instance=ExtResource("2_ph1bu")]
 texture = ExtResource("3_iub1a")
